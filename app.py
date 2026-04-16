@@ -25,11 +25,11 @@ def encode_image_to_base64(image_path):
 
 
 # Streamlit 
-st.set_page_config(page_title='Tablero Inteligente')
-st.title('Tablero Inteligente')
+st.set_page_config(page_title='Tablero de sigilos')
+st.title('Análisis de sigilos')
 with st.sidebar:
     st.subheader("Acerca de:")
-    st.subheader("En esta aplicación veremos la capacidad que ahora tiene una máquina de interpretar un boceto")
+    st.subheader("Todo trazo tiene un significado oculto: dibuja símbolos para descubrir su verdadera naturaleza.")
 st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
 
 # Add canvas component
@@ -39,8 +39,8 @@ drawing_mode = "freedraw"
 stroke_width = st.sidebar.slider('Selecciona el ancho de línea', 1, 30, 5)
 #stroke_color = '#FFFFFF' # Set background color to white
 #bg_color = '#000000'
-stroke_color = "#000000" 
-bg_color = '#FFFFFF'
+stroke_color = "#FFFFFF" 
+bg_color = '#000000'
 #realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
 
@@ -50,8 +50,8 @@ canvas_result = st_canvas(
     stroke_width=stroke_width,
     stroke_color=stroke_color,
     background_color=bg_color,
-    height=300,
-    width=400,
+    height=400,
+    width=800,
     #background_image= None #Image.open(bg_image) if bg_image else None,
     drawing_mode=drawing_mode,
     key="canvas",
@@ -83,7 +83,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
  
         base64_image = encode_image_to_base64("img.png")
             
-        prompt_text = (f"Describe in spanish briefly the image")
+        prompt_text = (f"Make up and explain hidden meanings from the symbols of the image")
     
       # Create the payload for the completion request
         messages = [

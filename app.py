@@ -29,8 +29,8 @@ st.set_page_config(page_title='Tablero de sigilos')
 st.title('Análisis de sigilos')
 with st.sidebar:
     st.subheader("Acerca de:")
-    st.subheader("Todo trazo tiene un significado oculto: dibuja símbolos para descubrir su verdadera naturaleza.")
-st.subheader("Dibuja el boceto en el panel  y presiona el botón para analizarla")
+    st.subheader("Todo trazo tiene un significado oculto. Dibuja símbolos para descubrir su verdadera naturaleza.")
+st.subheader("Dibuja símbolos y presiona el botón para analizarlos")
 
 # Add canvas component
 #bg_image = st.sidebar.file_uploader("Cargar Imagen:", type=["png", "jpg"])
@@ -83,7 +83,7 @@ if canvas_result.image_data is not None and api_key and analyze_button:
  
         base64_image = encode_image_to_base64("img.png")
             
-        prompt_text = (f"Make up and explain hidden meanings from the symbols of the image")
+        prompt_text = (f"Make up and explain hidden meanings from the symbols of the image in a mystical, vague and brief style.")
     
       # Create the payload for the completion request
         messages = [
